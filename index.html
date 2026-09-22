@@ -65,7 +65,7 @@ try { JSON.parse(localStorage.getItem("sel2") || "[]").forEach(n => sel.add(n));
 function card(it) {
   const f = document.createElement("figure");
   f.dataset.n = it.n;
-  f.innerHTML = `<img src="img/thumb/${it.f}" loading="lazy" alt="Foto ${it.n}">
+  f.innerHTML = `<img src="img/thumb/v2-${it.f}" loading="lazy" alt="Foto ${it.n}">
     <figcaption><span class="num">${it.n}</span><span class="desc">${it.d}</span><button class="pick">Escolher</button></figcaption>`;
   f.querySelector("img").onclick = () => open(ITEMS.indexOf(it));
   f.querySelector(".pick").onclick = () => { sel.has(it.n) ? sel.delete(it.n) : sel.add(it.n); update(); };
@@ -88,7 +88,7 @@ function update() {
 update();
 const lb = document.getElementById("lb"); let cur = 0;
 function open(i) { cur = (i + ITEMS.length) % ITEMS.length; const it = ITEMS[cur];
-  lb.querySelector("img").src = "img/full/" + it.f; lb.querySelector(".cap").textContent = it.n + " · " + it.d; lb.hidden = false; }
+  lb.querySelector("img").src = "img/full/v2-" + it.f; lb.querySelector(".cap").textContent = it.n + " · " + it.d; lb.hidden = false; }
 lb.querySelector(".x").onclick = () => lb.hidden = true;
 lb.querySelector(".p").onclick = () => open(cur - 1);
 lb.querySelector(".n").onclick = () => open(cur + 1);
