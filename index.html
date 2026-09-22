@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noimageindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23141414%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 text-anchor=%27middle%27 fill=%27%23c9a45c%27 font-family=%27Georgia%27%3EJB%3C/text%3E%3C/svg%3E">
 <title>Seleção de fotos · Jéssica Batista</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -19,11 +20,11 @@ h1{font:600 clamp(34px,6vw,54px)/1.1 "Cormorant Garamond",Georgia,serif;margin:1
 .lead{color:var(--mute);max-width:640px;margin:0 auto}
 h2{font:600 30px/1.2 "Cormorant Garamond",Georgia,serif;margin:56px 0 4px;border-top:1px solid var(--line);padding-top:32px}
 .sub{color:var(--mute);margin:0 0 22px}
-.grid{columns:4 260px;column-gap:16px}
-figure{break-inside:avoid;margin:0 0 16px;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;position:relative;transition:border-color .2s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+figure{margin:0;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;position:relative;transition:border-color .2s}
 figure.sel{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
-figure img{width:100%;height:auto;display:block;cursor:zoom-in}
-figcaption{display:flex;align-items:center;gap:10px;padding:10px 12px}
+figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;display:block;cursor:zoom-in;background:#111}
+figcaption{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px 12px}
 .num{font:600 22px "Cormorant Garamond",serif;color:var(--gold);min-width:28px}
 .desc{flex:1;font-size:13px;color:var(--mute)}
 .pick{background:none;border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
@@ -43,28 +44,28 @@ figure.sel .pick{background:var(--gold);border-color:var(--gold);color:#141414}
 <body>
 <div class="wrap">
 <header>
-  <div class="kicker">Site profissional · seleção de imagem</div>
+  <div class="kicker">Seleção de fotos para o site</div>
   <h1>Jéssica Batista</h1>
-  <p class="lead">Escolha as fotos que mais combinam com você para o site. Toque em <b>Escolher</b> nas suas favoritas e envie a seleção pelo WhatsApp no botão abaixo. Toque na foto para ver em tamanho real.</p>
+  <p class="lead">Separamos 14 opções para o seu site profissional. Toque na foto para ver em tamanho real, marque suas favoritas em <b>Escolher</b> e envie pelo botão do WhatsApp.</p>
 </header>
 <h2>Novas cenas</h2>
-<p class="sub">Poses e ambientes novos, criados com IA a partir das suas fotos. Confira se você se reconhece em cada uma. Fotos provisórias até o ensaio oficial.</p>
+<p class="sub">Poses e ambientes novos, criados com inteligência artificial a partir das suas fotos, para uso provisório até o ensaio oficial. Confira com atenção se você se reconhece em cada uma.</p>
 <div class="grid" id="gn"></div>
 <h2>Suas fotos, tratadas</h2>
-<p class="sub">Fotos reais do seu ensaio: ampliadas, sem o recorte redondo, algumas com fundo de estúdio. O rosto não foi alterado.</p>
+<p class="sub">Fotos reais do seu ensaio: ampliadas, sem o recorte redondo e, em algumas, com fundo de estúdio. Seu rosto não foi alterado.</p>
 <div class="grid" id="gr"></div>
-<p class="note">Página privada para seleção. Não compartilhe.</p>
+<p class="note">Link enviado apenas para você. As fotos serão retiradas do ar após a escolha.</p>
 </div>
 <div class="bar"><span>Selecionadas: <b id="cnt">nenhuma</b></span><a id="send" aria-disabled="true" target="_blank" rel="noopener">Enviar escolha pelo WhatsApp</a></div>
 <div class="lb" id="lb" hidden><button class="x" aria-label="Fechar">×</button><button class="p" aria-label="Anterior">‹</button><img alt=""><button class="n" aria-label="Próxima">›</button><div class="cap"></div></div>
 <script>
-const ITEMS = [{"n": 1, "g": "n", "f": "01.jpg", "d": "Em pé, braços cruzados, escritório · variação A", "w": 700, "h": 900}, {"n": 2, "g": "n", "f": "02.jpg", "d": "Em pé, braços cruzados, escritório · variação B", "w": 700, "h": 900}, {"n": 3, "g": "n", "f": "03.jpg", "d": "Sentada à mesa, plano aberto · variação A", "w": 900, "h": 700}, {"n": 4, "g": "n", "f": "04.jpg", "d": "Sentada à mesa, plano aberto · variação B", "w": 900, "h": 700}, {"n": 5, "g": "n", "f": "05.jpg", "d": "Em pé, estúdio cinza · variação A", "w": 700, "h": 900}, {"n": 6, "g": "n", "f": "06.jpg", "d": "Em pé, estúdio cinza · variação B", "w": 700, "h": 900}, {"n": 7, "g": "n", "f": "07.jpg", "d": "Corpo inteiro, poltrona · variação A", "w": 700, "h": 900}, {"n": 8, "g": "n", "f": "08.jpg", "d": "Corpo inteiro, poltrona · variação B", "w": 700, "h": 900}, {"n": 9, "g": "n", "f": "09.jpg", "d": "Janela, luz natural · variação A", "w": 700, "h": 900}, {"n": 10, "g": "n", "f": "10.jpg", "d": "Janela, luz natural · variação B", "w": 700, "h": 900}, {"n": 11, "g": "n", "f": "11.jpg", "d": "Banner horizontal · variação A", "w": 900, "h": 514}, {"n": 12, "g": "n", "f": "12.jpg", "d": "Banner horizontal · variação B", "w": 900, "h": 514}, {"n": 13, "g": "n", "f": "13.jpg", "d": "Reunião, documentos · variação A", "w": 900, "h": 700}, {"n": 14, "g": "n", "f": "14.jpg", "d": "Reunião, documentos · variação B", "w": 900, "h": 700}, {"n": 15, "g": "n", "f": "15.jpg", "d": "Estante de livros · variação A", "w": 700, "h": 900}, {"n": 16, "g": "n", "f": "16.jpg", "d": "Estante de livros · variação B", "w": 700, "h": 900}, {"n": 17, "g": "n", "f": "17.jpg", "d": "Corpo inteiro, estúdio bege · variação A", "w": 700, "h": 900}, {"n": 18, "g": "n", "f": "18.jpg", "d": "Corpo inteiro, estúdio bege · variação B", "w": 700, "h": 900}, {"n": 19, "g": "n", "f": "19.jpg", "d": "Retrato, fundo escuro · variação A", "w": 700, "h": 900}, {"n": 20, "g": "n", "f": "20.jpg", "d": "Retrato, fundo escuro · variação B", "w": 700, "h": 900}, {"n": 21, "g": "r", "f": "21.jpg", "d": "Blazer branco · escritório", "w": 720, "h": 900}, {"n": 22, "g": "r", "f": "22.jpg", "d": "Blazer branco · escritório desfocado", "w": 720, "h": 900}, {"n": 23, "g": "r", "f": "23.jpg", "d": "Blazer branco · estúdio areia", "w": 720, "h": 900}, {"n": 24, "g": "r", "f": "24.jpg", "d": "Blazer branco · estúdio azul", "w": 720, "h": 900}, {"n": 25, "g": "r", "f": "25.jpg", "d": "Blazer branco · estúdio cinza", "w": 720, "h": 900}, {"n": 26, "g": "r", "f": "26.jpg", "d": "Blazer branco · estúdio grafite", "w": 720, "h": 900}, {"n": 27, "g": "r", "f": "27.jpg", "d": "Blazer preto · escritório", "w": 720, "h": 900}, {"n": 28, "g": "r", "f": "28.jpg", "d": "Blazer preto · escritório desfocado", "w": 720, "h": 900}, {"n": 29, "g": "r", "f": "29.jpg", "d": "Blazer preto · estúdio areia", "w": 720, "h": 900}, {"n": 30, "g": "r", "f": "30.jpg", "d": "Blazer preto · estúdio azul", "w": 720, "h": 900}, {"n": 31, "g": "r", "f": "31.jpg", "d": "Blazer preto · estúdio cinza", "w": 720, "h": 900}, {"n": 32, "g": "r", "f": "32.jpg", "d": "Blazer preto · estúdio grafite", "w": 720, "h": 900}, {"n": 33, "g": "r", "f": "33.jpg", "d": "Blazer branco · escritório (quadrada)", "w": 900, "h": 900}, {"n": 34, "g": "r", "f": "34.jpg", "d": "Blazer branco · estúdio areia (quadrada)", "w": 900, "h": 900}, {"n": 35, "g": "r", "f": "35.jpg", "d": "Blazer branco · estúdio azul (quadrada)", "w": 900, "h": 900}, {"n": 36, "g": "r", "f": "36.jpg", "d": "Blazer branco · estúdio cinza (quadrada)", "w": 900, "h": 900}, {"n": 37, "g": "r", "f": "37.jpg", "d": "Blazer branco · estúdio grafite (quadrada)", "w": 900, "h": 900}, {"n": 38, "g": "r", "f": "38.jpg", "d": "Blazer preto · escritório (quadrada)", "w": 900, "h": 900}, {"n": 39, "g": "r", "f": "39.jpg", "d": "Blazer preto · estúdio areia (quadrada)", "w": 900, "h": 900}, {"n": 40, "g": "r", "f": "40.jpg", "d": "Blazer preto · estúdio azul (quadrada)", "w": 900, "h": 900}, {"n": 41, "g": "r", "f": "41.jpg", "d": "Blazer preto · estúdio cinza (quadrada)", "w": 900, "h": 900}, {"n": 42, "g": "r", "f": "42.jpg", "d": "Blazer preto · estúdio grafite (quadrada)", "w": 900, "h": 900}];
+const ITEMS = [{"n": 1, "g": "n", "f": "01.jpg", "d": "Retrato, braços cruzados · fundo escuro"}, {"n": 2, "g": "n", "f": "02.jpg", "d": "Em pé, braços cruzados · escritório"}, {"n": 3, "g": "n", "f": "03.jpg", "d": "Em pé, junto à janela · luz natural"}, {"n": 4, "g": "n", "f": "04.jpg", "d": "Com livro, em frente à estante"}, {"n": 5, "g": "n", "f": "05.jpg", "d": "Em pé, mão no bolso · estúdio cinza"}, {"n": 6, "g": "n", "f": "06.jpg", "d": "Sentada, assinando documento · sala de reunião"}, {"n": 7, "g": "n", "f": "07.jpg", "d": "Corpo inteiro, sentada na poltrona"}, {"n": 8, "g": "n", "f": "08.jpg", "d": "Corpo inteiro, em pé · estúdio bege"}, {"n": 9, "g": "r", "f": "09.jpg", "d": "Blazer preto · escritório original"}, {"n": 10, "g": "r", "f": "10.jpg", "d": "Blazer branco · escritório original"}, {"n": 11, "g": "r", "f": "11.jpg", "d": "Blazer preto · fundo desfocado"}, {"n": 12, "g": "r", "f": "12.jpg", "d": "Blazer branco · estúdio grafite"}, {"n": 13, "g": "r", "f": "13.jpg", "d": "Blazer preto · estúdio cinza"}, {"n": 14, "g": "r", "f": "14.jpg", "d": "Blazer branco · estúdio areia"}];
 const sel = new Set();
-try { JSON.parse(localStorage.getItem("sel") || "[]").forEach(n => sel.add(n)); } catch (e) {}
+try { JSON.parse(localStorage.getItem("sel2") || "[]").forEach(n => sel.add(n)); } catch (e) {}
 function card(it) {
   const f = document.createElement("figure");
   f.dataset.n = it.n;
-  f.innerHTML = `<img src="img/thumb/${it.f}" width="${it.w}" height="${it.h}" loading="lazy" alt="Foto ${it.n}">
+  f.innerHTML = `<img src="img/thumb/${it.f}" loading="lazy" alt="Foto ${it.n}">
     <figcaption><span class="num">${it.n}</span><span class="desc">${it.d}</span><button class="pick">Escolher</button></figcaption>`;
   f.querySelector("img").onclick = () => open(ITEMS.indexOf(it));
   f.querySelector(".pick").onclick = () => { sel.has(it.n) ? sel.delete(it.n) : sel.add(it.n); update(); };
@@ -82,7 +83,7 @@ function update() {
   const a = document.getElementById("send");
   a.setAttribute("aria-disabled", !list.length);
   a.href = "https://wa.me/?text=" + encodeURIComponent("Fotos escolhidas para o site: " + list.join(", "));
-  try { localStorage.setItem("sel", JSON.stringify(list)); } catch (e) {}
+  try { localStorage.setItem("sel2", JSON.stringify(list)); } catch (e) {}
 }
 update();
 const lb = document.getElementById("lb"); let cur = 0;
